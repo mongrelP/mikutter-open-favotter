@@ -2,12 +2,12 @@
 # favstarを開く
 
 Module.new do
-  Plugin.create(:open_favstar).add_event_filter(:command){ |menu|
-    menu[:open_favstar] = {
-      :slug => :open_favstar,
-      :name => 'こいつのfavstarを見る',
+  Plugin.create(:open_favotter).add_event_filter(:command){ |menu|
+    menu[:open_favotter] = {
+      :slug => :open_favotter,
+      :name => 'こいつのfavotterを見る',
       :condition => lambda{ |m| m.message.repliable? },
-      :exec => lambda{ |m| Gtk::openurl("http://favstar.fm/users/#{m.message.user.idname}/recent") },
+      :exec => lambda{ |m| Gtk::openurl("http://favotter.net/user/#{m.message.user.idname}&mode=new") },
       :visible => true,
       :role => :message }
     [menu]
